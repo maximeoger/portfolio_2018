@@ -2,8 +2,6 @@
   display: block;
   color: $white;
   position: relative;
-  width: 100vw;
-  
 
   &__container{
     margin-left: 2.6rem;
@@ -15,7 +13,6 @@
         font-size: 3rem;
       }
       @include desktop {
-       
         margin-left: 10rem;
         font-size: 5rem;
         margin-right: 10rem;
@@ -97,6 +94,7 @@
 }
 .ext-link{
   padding-right: 1.8rem;
+  transition: ease-out 0.2s;
 }
 .ext-link:hover{
   color: $fushia !important;

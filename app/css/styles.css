@@ -104,8 +104,7 @@ input, button, submit {
 .about {
   display: block;
   color: #F8FAF8;
-  position: relative;
-  width: 100vw; }
+  position: relative; }
   .about__container {
     margin-left: 2.6rem;
     margin-right: 2.6rem;
@@ -182,7 +181,8 @@ input, button, submit {
   transition: ease-out 0.4s; }
 
 .ext-link {
-  padding-right: 1.8rem; }
+  padding-right: 1.8rem;
+  transition: ease-out 0.2s; }
 
 .ext-link:hover {
   color: #FF1654 !important; }
