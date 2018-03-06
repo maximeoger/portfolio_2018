@@ -1,0 +1,121 @@
+.about{
+  display: block;
+  color: $white;
+  position: relative;
+  width: 100vw;
+  
+
+  &__container{
+    margin-left: 2.6rem;
+    margin-right: 2.6rem;
+    font-weight: $semibold;
+    margin-top: 52vh;
+    padding-bottom: 5rem;
+      @include tablet {
+        font-size: 3rem;
+      }
+      @include desktop {
+       
+        margin-left: 10rem;
+        font-size: 5rem;
+        margin-right: 10rem;
+      
+      }
+    &__link{
+      color: $fushia !important;
+    }
+    &__title{
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+      @include tablet {
+      font-size: 3rem;
+      }
+      @include desktop {
+      font-size: 5rem;
+      }
+    }  
+    &__text{
+      font-size: 1.8rem;
+      line-height: 2.7rem;
+      padding-top: 1.8rem;
+      @include tablet {
+        font-size: 3rem;
+        line-height: 3.7rem;
+        padding-top: 6rem;
+      }
+      @include desktop {
+        padding-top: 12.5rem;
+        line-height: 7.5rem;
+        font-size: 5rem;
+      }
+      
+    }
+
+    &__linkBox{
+      margin-left: 2.6rem;
+      margin-right: 2.6rem;
+      @include tablet {
+  
+      }
+      @include desktop {
+        margin-right: 10rem;
+        margin-left: 10rem;
+        padding-bottom: 20rem;
+      }
+      &__title{
+        padding-top: 4.5rem;
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+        @include tablet {
+          font-size: 2.1rem;
+        }
+        @include desktop {
+          font-size: 2.8rem;
+        }
+      }
+      &__links{
+        font-size: 3.5rem;
+        color: $white;
+        line-height: 5.3rem;
+        display: flex;
+        flex-direction: column;
+        font-weight: $semibold;
+        padding-top: 2.5rem;
+        flex-wrap: wrap;
+        @include desktop {
+          font-size: 5rem;
+          flex-direction: row;
+        }
+      }
+    }
+  }
+  }
+  
+.about--fade{
+  display: none;
+  transition: ease-out 0.4s;
+}
+.ext-link{
+  padding-right: 1.8rem;
+}
+.ext-link:hover{
+  color: $fushia !important;
+}
+.ext-link::before{
+  @include desktop{
+    content:"-";
+    padding-right: 1.8rem;
+  }
+}
+.ext-link:first-child::before {
+    display: none;
+}
+.bg__animate{
+  position: fixed;
+  z-index: -1;
+  font-weight: $bold;
+  opacity: 0.1;
+  top: 50vh;
+  transform: translateY(-50%);
+  left: 10vw;
+}
