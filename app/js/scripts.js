@@ -4,11 +4,10 @@ var header_logo = document.querySelector('.header__container__logo__svg');
 var blotter_text = document.querySelector(".bg__animate");
 var randomHello = data.welcome[Math.floor(Math.random() * Math.floor(data.welcome.length))];
 var AboutTitle = document.querySelector('.about__container__title span');
-    
 
 var text = new Blotter.Text( randomHello , {
       family : " 'Raleway', sans-serif",
-      size : 150,
+      size : 200,
       fill : "#00000",
       weight: 700
 });
@@ -27,6 +26,5 @@ function initAbout () {
     header_logo.setAttribute("src", "./img/logo-white.svg");
     AboutTitle.innerHTML = randomHello;
 };
-
 
 initAbout();
