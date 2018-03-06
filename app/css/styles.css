@@ -201,7 +201,10 @@ input, button, submit {
   font-weight: 700;
   opacity: 0.1;
   top: 50vh;
-  left: 10vh;
+  left: 2.6rem;
   transform: translateY(-50%);
   height: 30vh;
   width: 100vh; }
+  @media (min-width: 1024px) {
+    .bg__animate {
+      left: 10rem; } }

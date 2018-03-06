@@ -113,8 +113,11 @@
   font-weight: $bold;
   opacity: 0.1;
   top: 50vh;
-  left: 10vw;
+  left: 2.6rem;
   transform: translateY(-50%);
   height: 30vh;
   width: 100vh;
+  @include desktop{
+    left: 10rem;
+  }
 }
