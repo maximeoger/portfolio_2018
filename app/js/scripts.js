@@ -8,7 +8,7 @@ var AboutTitle = document.querySelector('.about__container__title');
 
 var text = new Blotter.Text( randomHello , {
       family : " 'Raleway', sans-serif",
-      size : 200,
+      size : 150,
       fill : "#00000",
       weight: 700
 });
