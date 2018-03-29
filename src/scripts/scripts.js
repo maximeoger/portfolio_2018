@@ -22,9 +22,7 @@ var scope = blotter.forText(text);
 scope.appendTo(blotter_text);
 
 function initAbout () {
-    header_name.style.color = "#F8FAF8";
-    header_logo.setAttribute("src", "./img/logo-white.svg");
-    AboutTitle.innerHTML = randomHello;
+      AboutTitle.innerHTML = randomHello;
 };
 
 initAbout();

@@ -4,6 +4,7 @@
   z-index: 999;
   width: 100vw;
   top: 0;
+  background: linear-gradient($white, rgba(255, 255, 255, 0));
 
   &__container{
     height: 70px;
@@ -12,34 +13,36 @@
     justify-content: space-between;
     align-items: center;
 
-    @include desktop {
+    @include for-size(tablet-portrait-up) {
       height: 150px;
-    } 
+    }
 
     &__logo{
      margin-left: 2.6rem;
      display: flex;
     flex-direction: row;
     align-items: center;
-    
-      @include desktop {
+
+      @include for-size(tablet-portrait-up) {
        margin-left: 10rem;
       }
 
       &__svg{
         height: 23px;
-        @include desktop {
+
+        @include for-size(tablet-portrait-up) {
           height: 32px;
-          
+
         }
       }
       &__name{
         text-decoration: none;
-        color: $white;
+        color: $textColorStrong;
         font-size: 1.2rem;
         font-weight: $semibold;
         margin-left: 13px;
-        @include desktop {
+
+        @include for-size(tablet-portrait-up) {
           font-size: 1.6rem;
           margin-left: 2.9rem;
         }
@@ -57,8 +60,8 @@
   font-size: 1.4rem;
   font-weight: $medium;
   cursor: pointer;
-  @include desktop {
+
+  @include for-size(tablet-portrait-up) {
     margin-right: 10rem;
   }
 }
-
