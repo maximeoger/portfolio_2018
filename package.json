@@ -4,11 +4,14 @@
   "description": "",
   "main": "./src/index.js",
   "dependencies": {
-    "parcel-bundler": "^1.7.0",
     "autoprefixer": "^8.0.0",
     "babel-preset-env": "^1.6.1",
+    "blotter": "^2.1.0",
+    "data.js": "^0.11.1",
     "flexboxgrid": "^6.3.1",
-    "node-sass": "^4.7.2"
+    "node-sass": "^4.7.2",
+    "parcel-bundler": "^1.7.0",
+    "scripts": "^0.1.0"
   },
   "devDependencies": {},
   "scripts": {

@@ -1,12 +1,15 @@
 // global
 @import './global/_reset.scss';
 @import './global/_vars.scss';
+@import './global/_animations.scss';
 // mixins
 @import './mixins/_forsize.scss';
 
 // components
 @import './components/_about.scss';
 @import './components/_header.scss';
+@import './components/_controls.scss';
+@import './components/_project.scss';
 
 html{
   font-size: 62.5%;

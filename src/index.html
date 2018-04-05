@@ -30,48 +30,86 @@
   <meta name="twitter:description" content="Etudiant à HETIC, je suis à la recherche d'un stage et d'un contrat de professionnalisation en tant que développeur Front-End. ">
   <meta name="twitter:image" content="img/meta_img.jpg">
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,500i,600,700" rel="stylesheet">
   <title>Maxime Oger</title>
 </head>
 
 <body class="body">
-  <header class="header">
-    <div class="header__container">
-      <a href="index.html " class="header__container__logo">
-                  <img src="./img/logo-green.svg" alt="logo" class="header__container__logo__svg">
-                  <span class="header__container__logo__name">Maxime Oger</span>
-            </a>
+
+  <header class="Header">
+    <div class="row">
+      <div class="col-xs-6">
+        <a href="index.html " class="Header_logoContainer">
+              <img src="./img/logo-green.svg" alt="logo" class="Header_logoIcon">
+              <span class="Header_logoName">Maxime Oger</span>
+        </a>
+      </div>
+      <div class="col-xs-6">
+        <div class="Header_linkContainer">
+          <a href="#" class="Header_link">About</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <section class="about">
+  <section class="Main">
 
-    <div class="bg__animate"></div>
+    <div class="row middle-xs">
 
-    <div class="about__container">
-
-      <h1 class="about__container__title"><span></span> 😁</h1>
-
-      <p class="about__container__text">Je m'appelle Maxime Oger et j'étudie à
-        <strong class="strong"> HETIC </strong>.<br><br>Je suis passionné de nouvelles technologies et particulièrement par la façon dont fonctionne internet en général.
-        <br><br> Je suis souvent à la recherche de nouvelles façons de travailler. L'idée qui me motive le plus est de rejoindre une équipe de développeurs pour améliorer mes compétences 🤘🏻
-        <br><br> Je suis donc à la recherche d'un <strong class="strong">stage</strong> à partir du mois de Juillet et d'un <strong class="strong">contrat d'alternance </strong> à partir du mois d'Octobre 2018.
-        <br> <br>En plus du code, j'aime également le design, les jeux de société et la culture pop, les meetups et les podcasts.
-      </p>
-
-      <p class="about__container__text">Voici
-        <a class="about__container__link" href="" target="blank">mon CV</a>, n'hésitez pas à me contacter !
-      </p>
-
-      <h2 class="about__container__linkBox__title">Ailleurs sur le web :</h2>
-
-      <div class="about__container__linkBox__links">
-        <a href="https://github.com/maximeoger" class="ext-link" target="blank">Github</a>
-        <a href="https://codepen.io/maximeoger/" class="ext-link" target="blank">Codepen</a>
-        <a href="https://www.linkedin.com/in/maxime-oger-91179ab4" class="ext-link " target="blank">LinkedIn</a>
-        <a href="https://dribbble.com/maxou" class="ext-link" target="blank">Dribbble</a>
-        <a href="https://twitter.com/Oger_Maxime" class="ext-link" target="blank">Twitter</a>
+      <div class="col-xs-2 col-lg-2">
+        <!--control left -->
+        <div class="Control_box">
+          <div class="Control leftDir">
+            <div class="Control_direction"><span>Prev</span></div>
+            <div class="Control_dash"></div>
+          </div>
+        </div>
       </div>
+
+      <div class="col-xs-8 col-lg">
+        <div class="row middle-xs">
+          <div class="col-xs-12 col-lg">
+            <div class="Displayer">
+              <div class="Displayer_container">
+                <div class="Displayer_imgContainer">
+                  <img src="img/hestia_preview.jpg" alt="displayer preview image" class="Displayer_img">
+                  <div class="Displayer_counter">
+                    <span class="Displayer_counterState current">01</span>
+                    <div class="Displayer_counterBar">
+                      <div class="Displayer_counterFill"></div>
+                    </div>
+                    <span class="Displayer_counterState max">02</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-lg">
+            <div class="Infos">
+              <div class="Infos_container">
+                <div class="Infos_titleContainer">
+                  <h1 class="Infos_title"></h1>
+                </div>
+                <h2 class="Infos_stackTitle">Technologies</h2>
+                <div class="Infos_stackContainer"></div>
+                <p class="Infos_text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-2 col-lg-2">
+        <!--control right -->
+        <div class="Control_box">
+          <div class="Control rightDir">
+            <div class="Control_dash --right"></div>
+            <div class="Control_direction --left"><span>Next</span></div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </section>
