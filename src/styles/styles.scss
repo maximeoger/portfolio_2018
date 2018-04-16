@@ -1,0 +1,29 @@
+// global
+@import './global/_reset.scss';
+@import './global/_vars.scss';
+@import './global/_animations.scss';
+// mixins
+@import './mixins/_forsize.scss';
+
+// components
+@import './components/_about.scss';
+@import './components/_header.scss';
+@import './components/_controls.scss';
+@import './components/_Displayer.scss';
+@import './components/_infos.scss';
+
+html{
+  font-size: 62.5%;
+}
+.body{
+  background-color: $white;
+  font-family: 'Raleway', sans-serif;
+}
+a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
+    color: inherit;
+}
+input, button, submit{ border:none;}
+.strong{
+  color: $lightGreen;
+}

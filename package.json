@@ -1,20 +1,31 @@
 {
-  "name": "portfolio",
+  "name": "portfolio_2018",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "dependencies": {
+    "autoprefixer": "^8.0.0",
+    "babel-preset-env": "^1.6.1",
+    "blotter": "^2.1.0",
+    "data.js": "^0.11.1",
     "flexboxgrid": "^6.3.1",
-    "gulp": "^3.9.1"
+    "node-sass": "^4.7.2",
+    "parcel-bundler": "^1.7.0",
+    "scripts": "^0.1.0"
   },
-  "devDependencies": {
-    "browser-sync": "^2.23.6",
-    "gulp-refresh": "^1.1.0",
-    "gulp-sass": "^3.1.0"
-  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel src/index.html",
+    "build": "parcel src/index.js"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maximeoger/portfolio_2018.git"
+  },
+  "author": "maxime oger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maximeoger/portfolio_2018/issues"
+  },
+  "homepage": "https://github.com/maximeoger/portfolio_2018#readme"
 }

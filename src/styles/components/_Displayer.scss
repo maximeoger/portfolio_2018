@@ -1,0 +1,39 @@
+.Displayer{
+  &_container{
+  }
+  &_imgContainer{
+    width: 244px;
+    height: 244px;
+    margin: 0 auto;
+    position: relative;
+    @include for-size (tablet-portrait-up){
+      width: 400px;
+      height: 400px;
+    }
+  }
+  &_img{
+    width: 100%;
+  }
+  &_counter{
+    height: 24px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+  }
+  &_counterState{
+    font-size: 1.2rem;
+    padding: 0 15px;
+    color: $textColorLight;
+  }
+  &_counterBar{
+    height: 2px;
+    background: #D0D0D0;
+    width: 50px;
+  }
+  &_counterFill{
+    width: 50%;
+    height: 100%;
+    background: $fushia;
+  }
+}

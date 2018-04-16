@@ -1,9 +1,7 @@
 .about{
   display: block;
-  color: $white;
+  color: $textColorStrong;
   position: relative;
-  width: 100vw;
-  
 
   &__container{
     margin-left: 2.6rem;
@@ -11,53 +9,57 @@
     font-weight: $semibold;
     margin-top: 52vh;
     padding-bottom: 5rem;
-      @include tablet {
+
+      @include for-size(tablet-portrait-up) {
         font-size: 3rem;
       }
-      @include desktop {
-       
+
+      @include for-size(desktop-up) {
         margin-left: 10rem;
         font-size: 5rem;
         margin-right: 10rem;
-      
       }
     &__link{
-      color: $fushia !important;
+      color: $lightGreen !important;
     }
     &__title{
     font-size: 1.8rem;
     line-height: 2.7rem;
-      @include tablet {
+
+      @include for-size(tablet-portrait-up) {
       font-size: 3rem;
       }
-      @include desktop {
+
+      @include for-size(desktop-up) {
       font-size: 5rem;
       }
-    }  
+    }
     &__text{
       font-size: 1.8rem;
       line-height: 2.7rem;
       padding-top: 1.8rem;
-      @include tablet {
+
+      @include for-size(tablet-portrait-up) {
         font-size: 3rem;
         line-height: 3.7rem;
         padding-top: 6rem;
       }
-      @include desktop {
+      @include for-size(desktop-up) {
         padding-top: 12.5rem;
         line-height: 7.5rem;
         font-size: 5rem;
       }
-      
+
     }
 
     &__linkBox{
       margin-left: 2.6rem;
       margin-right: 2.6rem;
-      @include tablet {
-  
+
+      @include for-size(tablet-portrait-up){
+
       }
-      @include desktop {
+      @include for-size(desktop-up) {
         margin-right: 10rem;
         margin-left: 10rem;
         padding-bottom: 20rem;
@@ -66,23 +68,27 @@
         padding-top: 4.5rem;
         font-size: 1.4rem;
         line-height: 2.1rem;
-        @include tablet {
+        color: $textColorLight;
+        font-weight: 300;
+
+        @include for-size(tablet-portrait-up) {
           font-size: 2.1rem;
         }
-        @include desktop {
+        @include for-size(desktop-up) {
           font-size: 2.8rem;
         }
       }
       &__links{
         font-size: 3.5rem;
-        color: $white;
+        color: $textColorStrong;
         line-height: 5.3rem;
         display: flex;
         flex-direction: column;
         font-weight: $semibold;
         padding-top: 2.5rem;
         flex-wrap: wrap;
-        @include desktop {
+
+        @include for-size(tablet-portrait-up) {
           font-size: 5rem;
           flex-direction: row;
         }
@@ -90,19 +96,20 @@
     }
   }
   }
-  
+
 .about--fade{
   display: none;
   transition: ease-out 0.4s;
 }
 .ext-link{
   padding-right: 1.8rem;
+  transition: ease-out 0.2s;
 }
 .ext-link:hover{
-  color: $fushia !important;
+  color: $lightGreen !important;
 }
 .ext-link::before{
-  @include desktop{
+  @include for-size(desktop-up){
     content:"-";
     padding-right: 1.8rem;
   }
@@ -114,8 +121,12 @@
   position: fixed;
   z-index: -1;
   font-weight: $bold;
-  opacity: 0.1;
+  opacity: 0.03;
   top: 50vh;
+  margin-left: 2.6rem;
   transform: translateY(-50%);
-  left: 10vw;
+
+  @include for-size(desktop-up){
+    margin-left: 10rem;
+  }
 }

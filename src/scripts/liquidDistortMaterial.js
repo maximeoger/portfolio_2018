@@ -37,7 +37,7 @@
         this.mainImage = _mainImageSrc();
         this.uniforms = {
           uSpeed : { type : "1f", value : 0.1 },
-          uVolatility : { type : "1f", value : 0.15 },
+          uVolatility : { type : "1f", value : 0.07 },
           uSeed : { type : "1f", value : 0.1 }
         };
       }
