@@ -1,84 +1,39 @@
 .Displayer{
-  margin-top: 70px;
   &_container{
-
-    @include for-size(tablet-portrait-up){
-      height: 100vh;
-    }
   }
-  &_visual{
-  }
-  &_visualImg{
+  &_imgContainer{
+    width: 244px;
     height: 244px;
-    @include for-size(desktop-up){
+    margin: 0 auto;
+    position: relative;
+    @include for-size (tablet-portrait-up){
+      width: 400px;
       height: 400px;
     }
   }
-  &_infosTitle{
-    font-weight: $bold;
-    font-size: 2.6rem;
-    margin-top: 70px;
-    color: $textColorStrong;
+  &_img{
+    width: 100%;
   }
-  &_stackTitle{
-    font-size: 1.4rem;
-    margin-top: 20px;
-    font-style: italic;
-  }
-  &_stackContainer{
-    margin-top: 5px;
-    font-size: 1.4rem;
-  }
-  &_infosText{
-    margin-top: 2.1rem;
-    font-size: 1.4rem;
-    line-height: 2.4rem;
-  }
-}
-.Control{
-  position: absolute;
-  top: 50vh;
-  transform: translateY(-50%);
-  flex-direction: column;
-  cursor: pointer;
-  &_container{
-    position: relative;
-    border-bottom: 1px solid $fushia;
+  &_counter{
     height: 24px;
-    width: 30px;
-    transition: All ease-out .2s;
-    overflow: visible;
-    @include for-size(tablet-portrait-up){
-      width: 100px;
-    }
-  }
-  &_container:hover{
-    width: 20px;
-    @include for-size(tablet-portrait-up){
-      width: 80px;
-    }
-  }
-  &_direction{
-    font-weight: 400;
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
     position: absolute;
-    @include for-size(tablet-portrait-up){
-      bottom: -6px;
-    }
+    right: 0;
   }
-}
-.Control-right{
-  right: 0px;
-}
-.--leftDirection{
-  right: 17px;
-  @include for-size(tablet-portrait-up){
-    right: 120px;
+  &_counterState{
+    font-size: 1.2rem;
+    padding: 0 15px;
+    color: $textColorLight;
   }
-}
-.--rightDirection{
-  left: 17px;
-  @include for-size(tablet-portrait-up){
-    left: 120px;
+  &_counterBar{
+    height: 2px;
+    background: #D0D0D0;
+    width: 50px;
+  }
+  &_counterFill{
+    width: 50%;
+    height: 100%;
+    background: $fushia;
   }
 }
