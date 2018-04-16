@@ -4,6 +4,7 @@ import './styles/styles.scss';
 // fonction qui avance de 1 ou recule de 1
     // incrémente ou décrémente l'état actuel de la bare de chargement
     // change les informations en fonction de l'index du tableau
+    //
 
 
 // model
@@ -19,6 +20,7 @@ let counter = 0;
 let init = () => {
   current.innerHTML = "0" + counter;
 }
+
 let count = () => {
 
   if(counter < data.projects.length - 1){
