@@ -2,18 +2,20 @@ import 'flexboxgrid';
 import './styles/styles.scss';
 import {data} from './scripts/data.js'
 
-const leftBtn = document.querySelector('.leftDir');
-const rightBtn = document.querySelector('.rightDir');
-const maximum = document.querySelector('.max');
-const current = document.querySelector('.current');
-const title = document.querySelector('.Infos_title');
-const img = document.querySelector('.Displayer_img');
+const selectors = {
+  leftBtn : document.querySelector('.leftDir'),
+  rightBtn : document.querySelector('.rightDir'),
+  maximum : document.querySelector('.max'),
+  current : document.querySelector('.current'),
+  title : document.querySelector('.Infos_title'),
+  img : document.querySelector('.Displayer_img')
+}
 
 let counter = 0;
 
 let init = () => {
-  maximum.innerHTML = "0" + data.projects.length;
-  current.innerHTML = "0" + (counter + 1);
+  selectors.maximum.innerHTML = "0" + data.projects.length;
+  selectors.current.innerHTML = "0" + (counter + 1);
   render(counter);
 }
 
@@ -29,24 +31,24 @@ let render = (nb) => {
 
 init();
 
-rightBtn.addEventListener('click', function(){
+selectors.rightBtn.addEventListener('click', function(){
   if(counter < data.projects.length - 1){
     counter = counter + 1;
-    current.innerHTML = "0" + (counter + 1);
+    selectors.current.innerHTML = "0" + (counter + 1);
   }else{
     counter = 0
-    current.innerHTML = "0" + (counter + 1);
+    selectors.current.innerHTML = "0" + (counter + 1);
   }
   render(counter);
 });
 
-leftBtn.addEventListener('click', function(){
+selectors.leftBtn.addEventListener('click', function(){
   if(counter > 0){
     counter = counter - 1;
-    current.innerHTML = "0" + (counter + 1);
+    selectors.current.innerHTML = "0" + (counter + 1);
   }else{
     counter = data.projects.length - 1;
-    current.innerHTML = "0" + (counter + 1);
+    selectors.current.innerHTML = "0" + (counter + 1);
   }
   render(counter);
 });
