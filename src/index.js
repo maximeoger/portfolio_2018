@@ -1,6 +1,6 @@
 import 'flexboxgrid';
 import './styles/styles.scss';
-import {data} from './scripts/data.js'
+import {data} from './scripts/data.js';
 
 const selectors = {
   leftBtn : document.querySelector('.leftDir'),
