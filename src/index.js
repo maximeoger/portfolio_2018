@@ -1,37 +1,22 @@
 import 'flexboxgrid';
 import './styles/styles.scss';
-
-// fonction qui avance de 1 ou recule de 1
-    // incrémente ou décrémente l'état actuel de la bare de chargement
-    // change les informations en fonction de l'index du tableau
-    //
-
-
-// model
 import {data} from './scripts/data.js'
 
 const leftBtn = document.querySelector('.leftDir');
 const rightBtn = document.querySelector('.rightDir');
 const maximum = document.querySelector('.max');
 const current = document.querySelector('.current');
-maximum.innerHTML = "0" + data.projects.length;
+const title = document.querySelector('.Infos_title');
+const img = document.querySelector('.Displayer_img');
+
 let counter = 0;
 
 let init = () => {
-  current.innerHTML = "0" + counter;
+  maximum.innerHTML = "0" + data.projects.length;
+  current.innerHTML = "0" + (counter + 1);
+  render(counter);
 }
 
-let count = () => {
-
-  if(counter < data.projects.length - 1){
-    counter = counter + 1;
-    render(counter);
-  }else{
-    counter = 0;
-    render(counter);
-  }
-  current.innerHTML = "0" + counter;
-}
 let render = (nb) => {
   document.querySelector('.Infos_stackContainer').innerHTML = '';
   document.querySelector('.Infos_title').innerHTML = data.projects[nb].title;
@@ -41,21 +26,27 @@ let render = (nb) => {
     document.querySelector('.Infos_stackContainer').innerHTML += '<span class="Infos_stack">'+ data.projects[nb].stack[i] +'</span>';
   }
 }
-render(0);
 
+init();
 
 rightBtn.addEventListener('click', function(){
-  let title = document.querySelector('.Infos_title');
-  let img = document.querySelector('.Displayer_img');
-  count();
-  title.classList.toggle('--isHidden');
-  img.classList.toggle('--isChanging');
-  title.addEventListener('transitionend', function(){
-    this.classList.remove('--isHidden');
-  });
-  img.addEventListener('transitionend', function(){
-    this.classList.remove('--isChanging');
-  })
-
+  if(counter < data.projects.length - 1){
+    counter = counter + 1;
+    current.innerHTML = "0" + (counter + 1);
+  }else{
+    counter = 0
+    current.innerHTML = "0" + (counter + 1);
+  }
+  render(counter);
 });
-leftBtn.addEventListener('click', count);
+
+leftBtn.addEventListener('click', function(){
+  if(counter > 0){
+    counter = counter - 1;
+    current.innerHTML = "0" + (counter + 1);
+  }else{
+    counter = data.projects.length - 1;
+    current.innerHTML = "0" + (counter + 1);
+  }
+  render(counter);
+});
