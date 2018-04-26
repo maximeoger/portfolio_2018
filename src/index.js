@@ -13,6 +13,7 @@ const selectors = {
 }
 
 let counter = 0;
+let width = 0;
 
 let init = () => {
   selectors.maximum.innerHTML = "0" + data.projects.length;
@@ -31,14 +32,8 @@ let render = (nb) => {
   }
 }
 
-/*
-  let's drop the initial
-  idea of making a transition
-  by css animation and start a new JS way to do it
-*/
-
 let progressCounter = () => {
-  let width = 0;
+
 
   let timer = setInterval( () => {
     width = width + 1;
@@ -74,14 +69,13 @@ let backward = () => {
   }
   render(counter);
 }
+
 selectors.rightBtn.addEventListener('click', function(){
   forward();
+  width = 0;
 });
 
 selectors.leftBtn.addEventListener('click', function(){
   backward();
-});
-
-selectors.progressFill.addEventListener('animationend', function(){
-  console.log('fini');
+  width = 0;
 });
