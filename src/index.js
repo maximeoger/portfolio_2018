@@ -30,10 +30,11 @@ let render = (nb) => {
   for (let i = 0; i <= data.projects[nb].stack.length - 1; i++){
     document.querySelector('.Infos_stackContainer').innerHTML += '<span class="Infos_stack">'+ data.projects[nb].stack[i] +'</span>';
   }
+
+  console.log(document.querySelector('.Infos_title').innerHTML);
 }
 
 let progressCounter = () => {
-
 
   let timer = setInterval( () => {
     width = width + 1;
