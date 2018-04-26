@@ -6,3 +6,11 @@
     margin-top: 50px;
   }
 }
+@keyframes progress {
+  from{
+    width: 0%
+  }
+  to{
+    width: 100%
+  }
+}

@@ -1,37 +1,27 @@
 import 'flexboxgrid';
 import './styles/styles.scss';
+import {data} from './scripts/data.js';
 
-// fonction qui avance de 1 ou recule de 1
-    // incrémente ou décrémente l'état actuel de la bare de chargement
-    // change les informations en fonction de l'index du tableau
-    //
+const selectors = {
+  leftBtn : document.querySelector('.leftDir'),
+  rightBtn : document.querySelector('.rightDir'),
+  maximum : document.querySelector('.max'),
+  current : document.querySelector('.current'),
+  title : document.querySelector('.Infos_title'),
+  img : document.querySelector('.Displayer_img'),
+  progressFill : document.querySelector('.Displayer_counterFill')
+}
 
-
-// model
-import {data} from './scripts/data.js'
-
-const leftBtn = document.querySelector('.leftDir');
-const rightBtn = document.querySelector('.rightDir');
-const maximum = document.querySelector('.max');
-const current = document.querySelector('.current');
-maximum.innerHTML = "0" + data.projects.length;
 let counter = 0;
+let width = 0;
 
 let init = () => {
-  current.innerHTML = "0" + counter;
+  selectors.maximum.innerHTML = "0" + data.projects.length;
+  selectors.current.innerHTML = "0" + (counter + 1);
+  render(counter);
+  progressCounter();
 }
 
-let count = () => {
-
-  if(counter < data.projects.length - 1){
-    counter = counter + 1;
-    render(counter);
-  }else{
-    counter = 0;
-    render(counter);
-  }
-  current.innerHTML = "0" + counter;
-}
 let render = (nb) => {
   document.querySelector('.Infos_stackContainer').innerHTML = '';
   document.querySelector('.Infos_title').innerHTML = data.projects[nb].title;
@@ -41,21 +31,51 @@ let render = (nb) => {
     document.querySelector('.Infos_stackContainer').innerHTML += '<span class="Infos_stack">'+ data.projects[nb].stack[i] +'</span>';
   }
 }
-render(0);
+
+let progressCounter = () => {
 
 
-rightBtn.addEventListener('click', function(){
-  let title = document.querySelector('.Infos_title');
-  let img = document.querySelector('.Displayer_img');
-  count();
-  title.classList.toggle('--isHidden');
-  img.classList.toggle('--isChanging');
-  title.addEventListener('transitionend', function(){
-    this.classList.remove('--isHidden');
-  });
-  img.addEventListener('transitionend', function(){
-    this.classList.remove('--isChanging');
-  })
+  let timer = setInterval( () => {
+    width = width + 1;
+    selectors.progressFill.style.width = width + "%";
+    if(width >= 100){
+      forward();
+      width = 0;
+    }
+  }, 100);
+}
 
+init();
+
+let forward = () => {
+
+  if(counter < data.projects.length - 1){
+    counter = counter + 1;
+    selectors.current.innerHTML = "0" + (counter + 1);
+  }else{
+    counter = 0
+    selectors.current.innerHTML = "0" + (counter + 1);
+  }
+  render(counter);
+}
+let backward = () => {
+
+  if(counter > 0){
+    counter = counter - 1;
+    selectors.current.innerHTML = "0" + (counter + 1);
+  }else{
+    counter = data.projects.length - 1;
+    selectors.current.innerHTML = "0" + (counter + 1);
+  }
+  render(counter);
+}
+
+selectors.rightBtn.addEventListener('click', function(){
+  forward();
+  width = 0;
 });
-leftBtn.addEventListener('click', count);
+
+selectors.leftBtn.addEventListener('click', function(){
+  backward();
+  width = 0;
+});
