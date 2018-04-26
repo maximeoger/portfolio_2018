@@ -8,7 +8,8 @@ const selectors = {
   maximum : document.querySelector('.max'),
   current : document.querySelector('.current'),
   title : document.querySelector('.Infos_title'),
-  img : document.querySelector('.Displayer_img')
+  img : document.querySelector('.Displayer_img'),
+  progressFill : document.querySelector('.Displayer_counterFill')
 }
 
 let counter = 0;
@@ -17,6 +18,7 @@ let init = () => {
   selectors.maximum.innerHTML = "0" + data.projects.length;
   selectors.current.innerHTML = "0" + (counter + 1);
   render(counter);
+  progressCounter();
 }
 
 let render = (nb) => {
@@ -29,9 +31,29 @@ let render = (nb) => {
   }
 }
 
+/*
+  let's drop the initial
+  idea of making a transition
+  by css animation and start a new JS way to do it
+*/
+
+let progressCounter = () => {
+  let width = 0;
+
+  let timer = setInterval( () => {
+    width = width + 1;
+    selectors.progressFill.style.width = width + "%";
+    if(width >= 100){
+      forward();
+      width = 0;
+    }
+  }, 100);
+}
+
 init();
 
-selectors.rightBtn.addEventListener('click', function(){
+let forward = () => {
+
   if(counter < data.projects.length - 1){
     counter = counter + 1;
     selectors.current.innerHTML = "0" + (counter + 1);
@@ -40,9 +62,9 @@ selectors.rightBtn.addEventListener('click', function(){
     selectors.current.innerHTML = "0" + (counter + 1);
   }
   render(counter);
-});
+}
+let backward = () => {
 
-selectors.leftBtn.addEventListener('click', function(){
   if(counter > 0){
     counter = counter - 1;
     selectors.current.innerHTML = "0" + (counter + 1);
@@ -51,4 +73,15 @@ selectors.leftBtn.addEventListener('click', function(){
     selectors.current.innerHTML = "0" + (counter + 1);
   }
   render(counter);
+}
+selectors.rightBtn.addEventListener('click', function(){
+  forward();
+});
+
+selectors.leftBtn.addEventListener('click', function(){
+  backward();
+});
+
+selectors.progressFill.addEventListener('animationend', function(){
+  console.log('fini');
 });
