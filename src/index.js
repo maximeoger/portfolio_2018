@@ -30,8 +30,6 @@ let render = (nb) => {
   for (let i = 0; i <= data.projects[nb].stack.length - 1; i++){
     document.querySelector('.Infos_stackContainer').innerHTML += '<span class="Infos_stack">'+ data.projects[nb].stack[i] +'</span>';
   }
-
-  console.log(document.querySelector('.Infos_title').innerHTML);
 }
 
 let progressCounter = () => {
@@ -49,7 +47,6 @@ let progressCounter = () => {
 init();
 
 let forward = () => {
-
   if(counter < data.projects.length - 1){
     counter = counter + 1;
     selectors.current.innerHTML = "0" + (counter + 1);
@@ -57,10 +54,10 @@ let forward = () => {
     counter = 0
     selectors.current.innerHTML = "0" + (counter + 1);
   }
-  render(counter);
+  uiAnimation();
 }
-let backward = () => {
 
+let backward = () => {
   if(counter > 0){
     counter = counter - 1;
     selectors.current.innerHTML = "0" + (counter + 1);
@@ -68,15 +65,34 @@ let backward = () => {
     counter = data.projects.length - 1;
     selectors.current.innerHTML = "0" + (counter + 1);
   }
-  render(counter);
+  uiAnimation();
+}
+
+let uiAnimation = () => {
+  let anim = anime.timeline();
+  anim.add({
+    targets: '.Infos_title',
+    translateY: 50,
+    duration: 400,
+    complete: function(){
+      render(counter);
+    }
+  })
+  .add({
+    targets: '.Infos_title',
+    translateY: 0,
+    duration: 400
+  })
 }
 
 selectors.rightBtn.addEventListener('click', function(){
   forward();
+  titleAnim.start;
   width = 0;
 });
 
 selectors.leftBtn.addEventListener('click', function(){
   backward();
+  titleAnim.start;
   width = 0;
 });
