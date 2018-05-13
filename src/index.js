@@ -48,7 +48,7 @@ let progressFillAnimation = anime({
   targets: '.Displayer_counterFill',
   width: '100%',
   loop: true,
-  duration: 1000 * 10,
+  duration: (1000 * 10),
   easing: 'linear',
   update: function(){
     if (selectors.progressFill.style.width === '100%'){
