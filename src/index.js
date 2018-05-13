@@ -9,7 +9,7 @@ const selectors = {
   current : document.querySelector('.current'),
   title : document.querySelector('.Infos_title'),
   img : document.querySelector('.Displayer_img'),
-  progressFill : document.querySelector('.Displayer_counterFill')
+  progressFill : document.querySelector('.Displayer_counterFill'),
 }
 
 let counter = 0;
@@ -26,6 +26,19 @@ let render = (nb) => {
   document.querySelector('.Infos_stackContainer').innerHTML = '';
   document.querySelector('.Infos_title').innerHTML = data.projects[nb].title;
   document.querySelector('.Infos_text').innerHTML = data.projects[nb].description;
+
+  anime({
+    targets: ".Infos_title",
+    translateY: 0,
+    duration: 500,
+    easing: 'easeInExpo'
+  });
+  anime({
+    targets: '.Infos_stackContainer, .Infos_text',
+    opacity: 1,
+    duration: 200,
+    easing: 'linear'
+  })
 
   for (let i = 0; i <= data.projects[nb].stack.length - 1; i++){
     document.querySelector('.Infos_stackContainer').innerHTML += '<span class="Infos_stack">'+ data.projects[nb].stack[i] +'</span>';
@@ -69,30 +82,33 @@ let backward = () => {
 }
 
 let uiAnimation = () => {
-  let anim = anime.timeline();
-  anim.add({
+
+  let timeline = anime.timeline();
+
+  anime({
     targets: '.Infos_title',
     translateY: 50,
-    duration: 400,
+    duration: 500,
+    easing: 'easeOutExpo',
     complete: function(){
       render(counter);
     }
   })
-  .add({
-    targets: '.Infos_title',
-    translateY: 0,
-    duration: 400
+
+  anime({
+    targets: '.Infos_stackContainer, .Infos_text',
+    opacity: 0,
+    duration: 200,
+    easing: 'linear'
   })
 }
 
 selectors.rightBtn.addEventListener('click', function(){
   forward();
-  titleAnim.start;
   width = 0;
 });
 
 selectors.leftBtn.addEventListener('click', function(){
   backward();
-  titleAnim.start;
   width = 0;
 });
