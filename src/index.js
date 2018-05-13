@@ -13,13 +13,11 @@ const selectors = {
 }
 
 let counter = 0;
-let width = 0;
 
 let init = () => {
   selectors.maximum.innerHTML = "0" + data.projects.length;
   selectors.current.innerHTML = "0" + (counter + 1);
   render(counter);
-  progressCounter();
 }
 
 let render = (nb) => {
@@ -27,23 +25,37 @@ let render = (nb) => {
   document.querySelector('.Infos_title').innerHTML = data.projects[nb].title;
   document.querySelector('.Infos_text').innerHTML = data.projects[nb].description;
 
+  anime({
+    targets: ".Infos_title",
+    translateY: 0,
+    duration: 500,
+    easing: 'easeInExpo'
+  });
+  anime({
+    targets: '.Infos_stackContainer, .Infos_text',
+    opacity: 1,
+    duration: 200,
+    easing: 'linear'
+  })
+
+
   for (let i = 0; i <= data.projects[nb].stack.length - 1; i++){
     document.querySelector('.Infos_stackContainer').innerHTML += '<span class="Infos_stack">'+ data.projects[nb].stack[i] +'</span>';
   }
 }
 
-let progressCounter = () => {
-
-
-  let timer = setInterval( () => {
-    width = width + 1;
-    selectors.progressFill.style.width = width + "%";
-    if(width >= 100){
+let progressFillAnimation = anime({
+  targets: '.Displayer_counterFill',
+  width: '100%',
+  loop: true,
+  duration: (1000 * 10),
+  easing: 'linear',
+  update: function(){
+    if (selectors.progressFill.style.width === '100%'){
       forward();
-      width = 0;
     }
-  }, 100);
-}
+  }
+});
 
 init();
 
@@ -56,8 +68,9 @@ let forward = () => {
     counter = 0
     selectors.current.innerHTML = "0" + (counter + 1);
   }
-  render(counter);
+  uiAnimation();
 }
+
 let backward = () => {
 
   if(counter > 0){
@@ -67,15 +80,35 @@ let backward = () => {
     counter = data.projects.length - 1;
     selectors.current.innerHTML = "0" + (counter + 1);
   }
-  render(counter);
+  uiAnimation();
+}
+
+let uiAnimation = () => {
+
+  let timeline = anime.timeline();
+  anime({
+    targets: '.Infos_title',
+    translateY: 50,
+    duration: 500,
+    easing: 'easeOutExpo',
+    complete: function(){
+      render(counter);
+    }
+  })
+  anime({
+    targets: '.Infos_stackContainer, .Infos_text',
+    opacity: 0,
+    duration: 200,
+    easing: 'linear'
+  })
 }
 
 selectors.rightBtn.addEventListener('click', function(){
+  progressFillAnimation.restart();
   forward();
-  width = 0;
 });
 
 selectors.leftBtn.addEventListener('click', function(){
+  progressFillAnimation.restart();
   backward();
-  width = 0;
 });

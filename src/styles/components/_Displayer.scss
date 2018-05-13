@@ -32,14 +32,8 @@
     width: 50px;
   }
   &_counterFill{
-    /*
-    animation-name: progress;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    */
-
     height: 100%;
+    width: 0%;
     background: $fushia;
   }
 }
