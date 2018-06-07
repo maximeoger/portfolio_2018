@@ -1,4 +1,6 @@
 .Infos{
+  opacity: 0;
+  transform: translateY(100);
   margin-top: 70px;
   &_container{
     @include for-size(tablet-portrait-up){

@@ -14,13 +14,37 @@ const selectors = {
 
 let counter = 0;
 
-let init = () => {
+let text = new Blotter.Text( page , {
+      family : " 'Raleway', sans-serif",
+      size : 200,
+      fill : "#00000",
+      weight: 700
+})
+
+let init = function(){
   selectors.maximum.innerHTML = "0" + data.projects.length;
   selectors.current.innerHTML = "0" + (counter + 1);
   render(counter);
+
+  
+  anime({
+    targets: '.Infos',
+    opacity: 1,
+    easing: 'easeOutExpo',
+    translateY: -25,
+    delay: 200
+  })
+
+  anime({
+    targets: '.Displayer_img',
+    easing: 'easeOutExpo',
+    opacity: 1,
+    translateY: -25,
+    delay: 400
+  })
 }
 
-let render = (nb) => {
+let render = function(nb) {
   document.querySelector('.Infos_stackContainer').innerHTML = '';
   document.querySelector('.Infos_title').innerHTML = data.projects[nb].title;
   document.querySelector('.Infos_text').innerHTML = data.projects[nb].description;
@@ -59,7 +83,7 @@ let progressFillAnimation = anime({
 
 init();
 
-let forward = () => {
+let forward = function(){
 
   if(counter < data.projects.length - 1){
     counter = counter + 1;
@@ -71,7 +95,7 @@ let forward = () => {
   uiAnimation();
 }
 
-let backward = () => {
+let backward = function(){
 
   if(counter > 0){
     counter = counter - 1;
@@ -83,7 +107,7 @@ let backward = () => {
   uiAnimation();
 }
 
-let uiAnimation = () => {
+let uiAnimation = function(){
 
   let timeline = anime.timeline();
   anime({

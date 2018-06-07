@@ -1,3 +1,4 @@
+/*
 .about{
   display: block;
   color: $textColorStrong;
@@ -129,4 +130,13 @@
   @include for-size(desktop-up){
     margin-left: 10rem;
   }
+}
+*/
+.About{
+  //display: none;
+  position: absolute;
+  z-index: 1000;
+  background: $lightGrey;
+  font-size: 5rem;
+
 }

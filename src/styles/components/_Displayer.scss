@@ -1,7 +1,9 @@
 .Displayer{
   &_container{
+
   }
   &_imgContainer{
+    cursor: pointer;
     width: 244px;
     height: 244px;
     margin: 0 auto;
@@ -13,6 +15,8 @@
   }
   &_img{
     width: 100%;
+    opacity: 0;
+    transform: translateY(100);
   }
   &_counter{
     height: 24px;
@@ -36,4 +40,19 @@
     width: 0%;
     background: $fushia;
   }
+}
+.Displayer_imgContainer::before{
+  content: 'Voir le site';
+  width: 400px;
+  height: 400px;
+  background: #000;
+  opacity: 0.5;
+  position: absolute;
+  color: #fff;
+  text-align: center;
+  z-index: 2;
+  display: none;
+}
+.Displayer_imgContainer:hover>::before{
+  display: block;
 }
