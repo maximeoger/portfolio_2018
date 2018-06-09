@@ -1,12 +1,6 @@
-/*
-var header_link = document.querySelector('.header__container__link');
-var header_name = document.querySelector('.header__container__logo__name');
-var header_logo = document.querySelector('.header__container__logo__svg');
-var blotter_text = document.querySelector(".bg__animate");
-var randomHello = data.welcome[Math.floor(Math.random() * Math.floor(data.welcome.length))];
-var AboutTitle = document.querySelector('.about__container__title span');
-*/
-
+import 'flexboxgrid';
+import './styles/styles.scss';
+import {data} from './scripts/data.js';
 
 const selectors = {
   leftBtn : document.querySelector('.leftDir'),
@@ -20,35 +14,17 @@ const selectors = {
 
 let counter = 0;
 
-let textEffect = function (name){
-  
-let elem = document.querySelector(".Distortion_bg");
-
-let text = new Blotter.Text(name, {
-      family : " 'Raleway', sans-serif",
-      size : 200,
-      fill : "#00000",
-      weight: 700
-});
-
-let material = new Blotter.LiquidDistortMaterial();
-
-let blotter = new Blotter(material, {
-  texts : text
-});
 
 
-let scope = blotter.forText(text);
-scope.appendTo(elem);
-}
+
 
 let init = function(){
-  textEffect("works");
+
   selectors.maximum.innerHTML = "0" + data.projects.length;
   selectors.current.innerHTML = "0" + (counter + 1);
   render(counter);
 
-
+  
   anime({
     targets: '.Infos',
     opacity: 1,
@@ -70,8 +46,6 @@ let render = function(nb) {
   document.querySelector('.Infos_stackContainer').innerHTML = '';
   document.querySelector('.Infos_title').innerHTML = data.projects[nb].title;
   document.querySelector('.Infos_text').innerHTML = data.projects[nb].description;
-  document.querySelector('.Displayer_img').setAttribute('src', 'img/' + data.projects[nb].preview_src + '');
-  document.querySelector('.Displayer_link').setAttribute('href', data.projects[nb].ext_link);
 
   anime({
     targets: ".Infos_title",
@@ -84,13 +58,13 @@ let render = function(nb) {
     scale: 1,
     duration: 500,
     easing: 'easeOutExpo'
-  });
+  })
   anime({
     targets: '.Infos_stackContainer, .Infos_text',
     opacity: 1,
     duration: 200,
     easing: 'linear'
-  });
+  })
 
 
   for (let i = 0; i <= data.projects[nb].stack.length - 1; i++){

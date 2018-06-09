@@ -51,7 +51,7 @@ table {
   position: absolute;
   opacity: 0.03;
   z-index: -1;
-  top: 78vh;
+  top: 50vh;
   transform: translateY(-50%);
   left: 8.3333333%; }
 
@@ -274,11 +274,15 @@ table {
   width: 244px;
   height: 244px;
   margin: 0 auto;
-  position: relative; }
+  position: relative;
+  transition: all ease-out .2s; }
   @media (min-width: 770px) {
     .Displayer_imgContainer {
       width: 400px;
       height: 400px; } }
+
+.Displayer_imgContainer:hover {
+  opacity: 0.5; }
 
 .Displayer_img {
   width: 100%;

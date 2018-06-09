@@ -8,10 +8,14 @@
     height: 244px;
     margin: 0 auto;
     position: relative;
+    transition: all ease-out .2s;
     @include for-size (tablet-portrait-up){
       width: 400px;
       height: 400px;
     }
+  }
+  &_imgContainer:hover{
+    opacity: 0.5;
   }
   &_img{
     width: 100%;
