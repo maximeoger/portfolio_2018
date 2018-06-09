@@ -32,27 +32,12 @@
   }
   &_counterBar{
     height: 2px;
-    background: #D0D0D0;
     width: 50px;
   }
   &_counterFill{
     height: 100%;
     width: 0%;
-    background: $fushia;
+    background: $textColorLight;
   }
 }
-.Displayer_imgContainer::before{
-  content: 'Voir le site';
-  width: 400px;
-  height: 400px;
-  background: #000;
-  opacity: 0.5;
-  position: absolute;
-  color: #fff;
-  text-align: center;
-  z-index: 2;
-  display: none;
-}
-.Displayer_imgContainer:hover>::before{
-  display: block;
-}
+

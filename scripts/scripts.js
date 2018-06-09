@@ -1,6 +1,12 @@
-import 'flexboxgrid';
-import './styles/styles.scss';
-import {data} from './scripts/data.js';
+/*
+var header_link = document.querySelector('.header__container__link');
+var header_name = document.querySelector('.header__container__logo__name');
+var header_logo = document.querySelector('.header__container__logo__svg');
+var blotter_text = document.querySelector(".bg__animate");
+var randomHello = data.welcome[Math.floor(Math.random() * Math.floor(data.welcome.length))];
+var AboutTitle = document.querySelector('.about__container__title span');
+*/
+
 
 const selectors = {
   leftBtn : document.querySelector('.leftDir'),
@@ -14,19 +20,35 @@ const selectors = {
 
 let counter = 0;
 
-let text = new Blotter.Text( page , {
+let textEffect = function (name){
+
+let text = new Blotter.Text(name, {
       family : " 'Raleway', sans-serif",
       size : 200,
       fill : "#00000",
       weight: 700
-})
+});
+
+let material = new Blotter.LiquidDistortMaterial();
+
+let blotter = new Blotter(material, {
+  texts : text
+});
+
+let elem = document.querySelector(".Distortion_bg");
+let scope = blotter.forText(text);
+
+scope.appendTo(elem);
+
+}
 
 let init = function(){
+
   selectors.maximum.innerHTML = "0" + data.projects.length;
   selectors.current.innerHTML = "0" + (counter + 1);
   render(counter);
 
-  
+
   anime({
     targets: '.Infos',
     opacity: 1,
@@ -48,6 +70,7 @@ let render = function(nb) {
   document.querySelector('.Infos_stackContainer').innerHTML = '';
   document.querySelector('.Infos_title').innerHTML = data.projects[nb].title;
   document.querySelector('.Infos_text').innerHTML = data.projects[nb].description;
+  textEffect(data.projects[nb].title);
 
   anime({
     targets: ".Infos_title",
@@ -55,6 +78,12 @@ let render = function(nb) {
     duration: 500,
     easing: 'easeInExpo'
   });
+  anime({
+    targets: '.Displayer_img',
+    scale: 1,
+    duration: 500,
+    easing: 'easeOutExpo'
+  })
   anime({
     targets: '.Infos_stackContainer, .Infos_text',
     opacity: 1,
@@ -109,7 +138,6 @@ let backward = function(){
 
 let uiAnimation = function(){
 
-  let timeline = anime.timeline();
   anime({
     targets: '.Infos_title',
     translateY: 50,
@@ -119,6 +147,14 @@ let uiAnimation = function(){
       render(counter);
     }
   })
+
+  anime({
+    targets: '.Displayer_img',
+    scale: 0.9,
+    duration: 500,
+    easing: 'easeOutExpo'
+  })
+
   anime({
     targets: '.Infos_stackContainer, .Infos_text',
     opacity: 0,
